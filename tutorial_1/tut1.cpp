@@ -1,5 +1,14 @@
+#define CL_USE_DEPRECATED_OPENCL_1_2_APIS
+#define __CL_ENABLE_EXCEPTIONS
+
 #include <iostream>
 #include <vector>
+
+#ifdef __APPLE__
+#include <OpenCL/cl.hpp>
+#else
+#include <CL/cl.hpp>
+#endif
 
 #include "Utils.h"
 
@@ -21,7 +30,7 @@ int main(int argc, char **argv) {
 		if ((strcmp(argv[i], "-p") == 0) && (i < (argc - 1))) { platform_id = atoi(argv[++i]); }
 		else if ((strcmp(argv[i], "-d") == 0) && (i < (argc - 1))) { device_id = atoi(argv[++i]); }
 		else if (strcmp(argv[i], "-l") == 0) { std::cout << ListPlatformsDevices() << std::endl; }
-		else if (strcmp(argv[i], "-h") == 0) { print_help(); return 0; }
+		else if (strcmp(argv[i], "-h") == 0) { print_help(); }
 	}
 
 	//detect any potential exceptions
@@ -58,7 +67,7 @@ int main(int argc, char **argv) {
 		//host - input
 		std::vector<int> A = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 }; //C++11 allows this type of initialisation
 		std::vector<int> B = { 0, 1, 2, 0, 1, 2, 0, 1, 2, 0 };
-		
+
 		size_t vector_elements = A.size();//number of elements
 		size_t vector_size = A.size()*sizeof(int);//size in bytes
 
