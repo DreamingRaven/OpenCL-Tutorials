@@ -10,7 +10,7 @@ Docker allows us to install everything consistently between all operating system
 
 To use docker for opencl you will need only two dependancies [docker](https://wiki.archlinux.org/index.php/Docker) and the docker [NVIDIA container toolkit](https://wiki.archlinux.org/index.php/Docker#With_NVIDIA_Container_Toolkit_(recommended)).
 
-On Ubuntu 18.04 to install docker:
+On Ubuntu 19.03 to install docker (must be docker v19!):
 ```
 sudo apt install docker.io
 distribution=$(. /etc/os-release;echo $ID$VERSION_ID)
