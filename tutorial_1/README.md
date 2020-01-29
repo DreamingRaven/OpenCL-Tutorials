@@ -10,6 +10,16 @@ Docker allows us to install everything consistently between all operating system
 
 To use docker for opencl you will need only two dependancies [docker](https://wiki.archlinux.org/index.php/Docker) and the docker [NVIDIA container toolkit](https://wiki.archlinux.org/index.php/Docker#With_NVIDIA_Container_Toolkit_(recommended)).
 
+On Ubuntu 18.04 to install docker:
+```
+sudo apt install docker.io
+distribution=$(. /etc/os-release;echo $ID$VERSION_ID)
+curl -s -L https://nvidia.github.io/nvidia-docker/gpgkey | sudo apt-key add -
+curl -s -L https://nvidia.github.io/nvidia-docker/$distribution/nvidia-docker.list | sudo tee /etc/apt/sources.list.d/nvidia-docker.list
+sudo apt-get update && sudo apt-get install -y nvidia-container-toolkit
+sudo systemctl restart docker
+```
+
 This docker can then be run on Linux by:
   ```sudo docker build -t archer/opencl .``` which will download, install, build everything for you. Then you can use it interactively by connecting to it ```sudo docker run --gpus all -it archer/opencl bash```. When you log in you will be in your current directory again but this time inside a container where you can build/ test all you like, and then it gets wiped when you close. Enjoy the consistent sandbox!
 
