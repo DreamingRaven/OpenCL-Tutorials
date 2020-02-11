@@ -31,12 +31,17 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 # specify our compiled binaries name
 set(BINARY_NAME tut2)
 # specify all our cpp files names
-set(CPP_FILES tut2.cpp utils.h CImage.h)
+set(CPP_FILES tut2.cpp utils.h CImg.h)
 
 # build our project executable, and link opencl lib
 find_package(OpenCL 2 REQUIRED)
+# find x11 for linux desktop
+find_package(X11 REQUIRED)
+# get thread library used in the tutorials
+find_package(Threads REQUIRED)
+
 add_executable(${BINARY_NAME} ${CPP_FILES})
-target_link_libraries(tut2 OpenCL::OpenCL)
+target_link_libraries(tut2 OpenCL::OpenCL ${X11_LIBRARIES} ${CMAKE_THREAD_LIBS_INIT})
 
 # copy kernel files over to binary directory so it can access them
 file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/kernels/ DESTINATION ${CMAKE_CURRENT_BINARY_DIR}/kernels/)

@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 
-#include "Utils.h"
+#include "utils.h"
 #include "CImg.h"
 
 using namespace cimg_library;
@@ -60,7 +60,7 @@ int main(int argc, char **argv) {
 		cl::Program program(context, sources);
 
 		//build and debug the kernel code
-		try { 
+		try {
 			program.build();
 		}
 		catch (const cl::Error& err) {
@@ -100,7 +100,7 @@ int main(int argc, char **argv) {
 			&& !disp_input.is_keyESC() && !disp_output.is_keyESC()) {
 		    disp_input.wait(1);
 		    disp_output.wait(1);
-	    }		
+	    }
 
 	}
 	catch (const cl::Error& err) {
