@@ -39,4 +39,5 @@ add_executable(${BINARY_NAME} ${CPP_FILES})
 target_link_libraries(tut1 OpenCL::OpenCL)
 
 # copy kernel files over to binary directory so it can access them
-file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/kernels/ DESTINATION ${CMAKE_CURRENT_BINARY_DIR}/kernels/)
+# file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/kernels/ DESTINATION ${CMAKE_CURRENT_BINARY_DIR}/kernels/)
+configure_file( ${CMAKE_CURRENT_SOURCE_DIR}/kernels/my_kernels.cl ${CMAKE_CURRENT_BINARY_DIR}/kernels/my_kernels.cl COPYONLY)
