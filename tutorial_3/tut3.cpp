@@ -1,7 +1,17 @@
+/**
+ * @Author: GeorgeRaven <archer>
+ * @Date:   2020-02-24T17:47:58+00:00
+ * @Last modified by:   archer
+ * @Last modified time: 2020-02-24T17:57:21+00:00
+ * @License: please see LICENSE file in project root
+ */
+
+
+
 #include <iostream>
 #include <vector>
 
-#include "Utils.h"
+#include "utils.h"
 
 void print_help() {
 	std::cerr << "Application usage:" << std::endl;
