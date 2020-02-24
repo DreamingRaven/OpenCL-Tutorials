@@ -10,15 +10,15 @@ https://nemesyst.readthedocs.io/en/latest/docker/ while not specifically for the
 
 https://wiki.archlinux.org/index.php/Docker the holy bible of linux, which shall endow you with super powers, including usage of docker, and installation of things like nvidia-container-toolkit.
 
-quick-start:
+## quick-start:
 
-# create a docker image with all our sources/ everything ready
-sudo docker build -t archer/opencl-tuts .
+### create a docker image with all our sources/ everything ready
+```sudo docker build -t archer/opencl-tuts .```
 
-# run our docker image with all the GPUs available
-sudo docker run --gpus all -it archer/opencl-tuts bash
+### run our docker image with all the GPUs available
+```sudo docker run --gpus all -it archer/opencl-tuts bash```
 
-# OR if you dont have nvidia gpus/ you dont want to use GPUs/ don't have nvidia-container-toolkit installed
-sudo docker run -it archer/opencl-tuts bash
+### OR if you dont have nvidia gpus/ you dont want to use GPUs/ don't have nvidia-container-toolkit installed
+```sudo docker run -it archer/opencl-tuts bash```
 
 May the force be with you.
