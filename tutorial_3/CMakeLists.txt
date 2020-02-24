@@ -36,7 +36,7 @@ set(CPP_FILES tut3.cpp utils.h CImg.h)
 # build our project executable, and link opencl lib
 find_package(OpenCL 2 REQUIRED)
 # find x11 for linux desktop
-find_package(X11 REQUIRED)
+find_package(X11)
 # get thread library used in the tutorials
 find_package(Threads REQUIRED)
 
