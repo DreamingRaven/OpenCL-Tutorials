@@ -43,7 +43,7 @@ find_package(Threads REQUIRED)
 find_package(Boost REQUIRED)
 
 add_executable(${BINARY_NAME} ${CPP_FILES})
-target_link_libraries(tut4 OpenCL::OpenCL ${X11_LIBRARIES} ${CMAKE_THREAD_LIBS_INIT})
+target_link_libraries(tut4 OpenCL::OpenCL ${X11_LIBRARIES} ${CMAKE_THREAD_LIBS_INIT} ${Boost_LIBRARIES})
 
 # copy kernel files over to binary directory so it can access them
 # configure_file( ${CMAKE_CURRENT_SOURCE_DIR}/kernels/my_kernels.cl ${CMAKE_CURRENT_BINARY_DIR}/kernels/my_kernels.cl COPYONLY)
