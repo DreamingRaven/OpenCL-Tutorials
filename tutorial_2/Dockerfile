@@ -27,10 +27,10 @@ FROM nvidia/opencl
 # pesky CL/cl2.hpp
 RUN mkdir -p /opencl_tutorials && \
     apt update -y && \
-    apt install -y cmake make gcc git build-essential ocl-icd-opencl-dev && \
+    apt install -y cmake fish make gcc git build-essential ocl-icd-opencl-dev && \
     git clone https://github.com/KhronosGroup/opencl-clhpp && \
     cp opencl-clhpp/include/CL/cl2.hpp /usr/include/CL/cl2.hpp && \
     rm -r /opencl-clhpp && \
-    echo "cd /opencl_tutorials" >> /root/.bashrc
+    echo "cd /opencl_tutorials\nexec fish" >> /root/.bashrc
 
 COPY . /opencl_tutorials/
