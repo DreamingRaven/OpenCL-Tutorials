@@ -1,4 +1,4 @@
-# Tutorial 2
+# Tutorial 3
 
 This directory "tutorial_3" is a completely self contained OpenCL example. It has CMake to build itself and Docker to automate all the dependencies and building for you. To build this project without docker simply run the build.sh file.
 
