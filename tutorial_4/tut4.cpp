@@ -2,7 +2,7 @@
  * @Author: GeorgeRaven <archer>
  * @Date:   2020-02-24T23:43:45+00:00
  * @Last modified by:   archer
- * @Last modified time: 2020-02-24T23:46:58+00:00
+ * @Last modified time: 2020-02-25T00:01:55+00:00
  * @License: please see LICENSE file in project root
  */
 
@@ -35,7 +35,8 @@ int main() {
 	compute::copy(B.begin(), B.end(), devB.begin());
 
 	// perform C = A + B
-	compute::transform(devA.begin(), devA.end(), devB.begin(), devC.begin(), compute::plus<mytype>());
+	compute::transform(devA.begin(), devA.end(), devB.begin(), devC.begin(),
+										 compute::plus<mytype>());
 
 	// copy data back to the host
 	compute::copy(devC.begin(), devC.end(), C.begin());
