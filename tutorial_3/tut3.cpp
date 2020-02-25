@@ -75,7 +75,7 @@ int main(int argc, char **argv) {
 		//the following part adjusts the length of the input vector so it can be run for a specific workgroup size
 		//if the total input length is divisible by the workgroup size
 		//this makes the code more efficient
-		size_t local_size = 10;
+		size_t local_size = 32;
 
 		size_t padding_size = A.size() % local_size;
 
@@ -111,6 +111,10 @@ int main(int argc, char **argv) {
 		kernel_1.setArg(0, buffer_A);
 		kernel_1.setArg(1, buffer_B);
 		kernel_1.setArg(2, cl::Local(local_size*sizeof(mytype)));//local memory size
+
+		cl::Device device = context.getInfo<CL_CONTEXT_DEVICES>()[0]; //get device
+		int pwg_size = kernel_1.getWorkGroupInfo<CL_KERNEL_PREFERRED_WORK_GROUP_SIZE_MULTIPLE>(device); //get info
+		std:cout << "prefered work group size = " << pwg_size << std::endl;
 
 		//call all kernels in a sequence
 		queue.enqueueNDRangeKernel(kernel_1, cl::NullRange, cl::NDRange(input_elements), cl::NDRange(local_size), NULL, &prof_event);
