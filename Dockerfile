@@ -28,7 +28,7 @@ FROM nvidia/opencl
 RUN mkdir -p /opencl_tutorials && \
     apt update -y && \
     apt install -y cmake make gcc git build-essential ocl-icd-opencl-dev \
-    fish neovim libboost-all-dev && \
+    fish neovim libboost-all-dev libx11-dev && \
     git clone https://github.com/KhronosGroup/opencl-clhpp && \
     cp opencl-clhpp/include/CL/* /usr/include/CL/ && \
     rm -r /opencl-clhpp && \
