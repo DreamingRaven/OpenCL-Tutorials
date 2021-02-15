@@ -30,7 +30,7 @@ RUN mkdir -p /opencl_tutorials && \
     apt install -y cmake make gcc git build-essential ocl-icd-opencl-dev \
     fish neovim libboost-all-dev && \
     git clone https://github.com/KhronosGroup/opencl-clhpp && \
-    cp opencl-clhpp/include/CL/cl2.hpp /usr/include/CL/cl2.hpp && \
+    cp opencl-clhpp/include/CL/* /usr/include/CL/ && \
     rm -r /opencl-clhpp && \
     echo "cd /opencl_tutorials\nexec fish" >> /root/.bashrc
 
